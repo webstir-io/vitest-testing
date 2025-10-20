@@ -1,5 +1,5 @@
 {
-  "name": "@webstir/vitest-testing",
+  "name": "@webstir-io/vitest-testing",
   "version": "0.0.4",
   "description": "Vitest-powered provider for the Webstir test host.",
   "type": "module",
@@ -23,7 +23,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/webstir/vitest-testing"
+    "url": "https://github.com/webstir-io/vitest-testing"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",

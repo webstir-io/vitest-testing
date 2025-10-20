@@ -52,7 +52,7 @@ export function createProviderRegistry(): ProviderRegistry {
   const fallbackRegistry = createDefaultProviderRegistry();
 
   const vitestProvider: TestProvider = {
-    id: '@webstir/vitest-testing/frontend',
+    id: '-io/vitest-testing/frontend',
     async runTests(files: readonly string[]) {
       if (files.length === 0) {
         return createEmptySummary();
@@ -60,7 +60,7 @@ export function createProviderRegistry(): ProviderRegistry {
 
       const summary = await runVitest(files);
       if (summary.total > 0 && summary.results.some((result) => result.name !== '[vitest provider]')) {
-        console.info('[webstir/vitest-testing] Vitest executed suite with %d result(s).', summary.total);
+        console.info('[webstir-io/vitest-testing] Vitest executed suite with %d result(s).', summary.total);
       }
       return summary;
     },
@@ -119,7 +119,7 @@ function createFailureSummary(files: readonly string[], message: string): Runner
 async function runVitest(files: readonly string[]): Promise<RunnerSummary> {
   const vitestPackage = resolveVitestPackage();
   if (!vitestPackage) {
-    const message = '[webstir/vitest-testing] Vitest runtime not installed. Install "vitest" in the active workspace or ensure it can be resolved.';
+    const message = '[webstir-io/vitest-testing] Vitest runtime not installed. Install "vitest" in the active workspace or ensure it can be resolved.';
     console.warn(message);
     return createFailureSummary(files, message);
   }
@@ -135,13 +135,13 @@ async function runVitest(files: readonly string[]): Promise<RunnerSummary> {
     }
   } catch (error) {
     const reason = error instanceof Error ? error.message : String(error);
-    const message = `[webstir/vitest-testing] Unable to load the Vitest runtime: ${reason}`;
+    const message = `[webstir-io/vitest-testing] Unable to load the Vitest runtime: ${reason}`;
     console.warn(message);
     return createFailureSummary(files, message);
   }
 
   if (!startVitest) {
-    const message = '[webstir/vitest-testing] Unable to locate the Vitest startVitest export.';
+    const message = '[webstir-io/vitest-testing] Unable to locate the Vitest startVitest export.';
     console.warn(message);
     return createFailureSummary(files, message);
   }
@@ -167,7 +167,7 @@ async function runVitest(files: readonly string[]): Promise<RunnerSummary> {
   const originalSpecEnv = process.env.WEBSTIR_TESTING_PROVIDER_SPEC;
 
   process.env.WEBSTIR_TEST_PROVIDER = 'vitest';
-  process.env.WEBSTIR_TESTING_PROVIDER = '@webstir/vitest-testing';
+  process.env.WEBSTIR_TESTING_PROVIDER = '@webstir-io/vitest-testing';
   process.env.WEBSTIR_TESTING_PROVIDER_SPEC = originalSpecEnv ?? '';
 
   const startTime = Date.now();
@@ -207,7 +207,7 @@ async function runVitest(files: readonly string[]): Promise<RunnerSummary> {
 
     const reason = error instanceof Error ? `Vitest execution failed: ${error.message}` : 'Vitest execution failed.';
     const message = formatFailureMessage(reason, stdout, stderr);
-    console.warn('[webstir/vitest-testing] %s', message);
+    console.warn('[webstir-io/vitest-testing] %s', message);
     return createFailureSummary(files, message);
   } finally {
     if (typeof originalProviderEnv === 'string') {
