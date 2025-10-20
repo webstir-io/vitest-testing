@@ -1,0 +1,46 @@
+{
+  "name": "@webstir/vitest-testing",
+  "version": "0.0.1",
+  "description": "Vitest-powered provider for the Webstir test host.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "test": "npm run build"
+  },
+  "keywords": [
+    "webstir",
+    "testing",
+    "vitest",
+    "provider"
+  ],
+  "author": "Webstir",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webstir/vitest-testing"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "dependencies": {
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "@webstir-io/webstir-testing": "^0.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.21",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.2"
+  }
+}
