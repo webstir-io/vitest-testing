@@ -1,6 +1,6 @@
 {
   "name": "@webstir-io/vitest-testing",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Vitest-powered provider for the Webstir test host.",
   "type": "module",
   "main": "dist/index.js",
