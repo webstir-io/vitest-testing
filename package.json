@@ -11,7 +11,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "rimraf dist",
-    "test": "npm run build"
+    "test": "node --test tests/*.test.js",
+    "smoke": "node -e \"console.log('[smoke] no smoke tests configured');\"",
+    "release": "bash scripts/publish.sh"
   },
   "keywords": [
     "webstir",
