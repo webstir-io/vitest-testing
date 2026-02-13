@@ -28,8 +28,8 @@
     "url": "https://github.com/webstir-io/vitest-testing"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "engines": {
     "node": ">=20.18.1"
